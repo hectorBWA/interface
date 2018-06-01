@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, enableProdMode } from '@angular/core';
+
+enableProdMode();
 
 interface Person{
   firstName: string;
@@ -13,15 +15,27 @@ interface Person{
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app works!';
+  title = 'app works';
 
   ngOnInit(){
     const customer: Person = {
       firstName:"Hector",
       lastName:"Zavala",
-      sayHi(){
-
+      sayHi: ()=> {
+        return "Hi";
       }
     }
+
+    console.log(customer.sayHi());
+
+      const employee: Person = {
+        firstName:"test",
+        lastName:"employee",
+        sayHi: ():string => {
+          return "Hello!";
+        }
+      }
+    
+    console.log(employee.sayHi());
   }
 }
